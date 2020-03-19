@@ -30,7 +30,11 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['swiper/dist/css/swiper.css'],
+  css: [
+    'swiper/dist/css/swiper.css',
+    '~/assets/css/global.scss',
+    '~/assets/css/variables.scss'
+  ],
   /*
    ** Plugins to load before mounting the App
    */
@@ -47,7 +51,7 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: ['nuxt-fontawesome'],
+  modules: ['nuxt-fontawesome', '@nuxtjs/style-resources'],
   /*
    ** Build configuration
    */
@@ -56,6 +60,9 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  styleResources: {
+    scss: ['~/assets/css/variables.scss', '~/assets/css/global.scss']
   },
   fontawesome: {
     imports: [
