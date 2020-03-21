@@ -1,5 +1,5 @@
 export default {
-  mode: 'universal',
+  mode: 'spa',
   /*
    ** Headers of the page
    */
@@ -61,6 +61,7 @@ export default {
     scss: ['~/assets/css/variables.scss', '~/assets/css/global.scss']
   },
   fontawesome: {
+    ssr: false,
     imports: [
       {
         set: '@fortawesome/free-brands-svg-icons',

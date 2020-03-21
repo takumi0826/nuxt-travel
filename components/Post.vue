@@ -85,9 +85,6 @@ export default {
     }
   },
   methods: {
-    // tabChange(num) {
-    //   this.$store.commit("tabChange", num);
-    // }
     ...mapMutations(['tabChange'])
   }
 }
@@ -184,46 +181,42 @@ export default {
     margin-top: 30px;
     text-align: center;
   }
-}
-.c-button {
-  display: inline-block;
-  border-radius: 25px;
-  border: 1px solid #eee;
-  width: 260px;
-  line-height: 50px;
-  position: relative;
-  overflow: hidden;
-  z-index: 0;
-  transition: all 0.3s;
-  @include lg {
-    background-color: $brown-1;
-    color: #fff;
-    border: 1px solid $brown-1;
-  }
-  @media (min-width: $lg) {
-    &:after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
+  .c-button {
+    display: inline-block;
+    border-radius: 25px;
+    border: 1px solid #eee;
+    width: 260px;
+    line-height: 50px;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    transition: all 0.3s;
+    @include lg {
       background-color: $brown-1;
-      transform: translateX(-100%);
-      z-index: -1;
-      transition: all 0.3s ease;
-      opacity: 0;
-    }
-    &:hover {
       color: #fff;
       border: 1px solid $brown-1;
-      &::after {
-        // content: "";
-        // position: absolute;
-        // left: 0;
-        // top: 0;
-        transform: none;
-        opacity: 1;
+    }
+    @media (min-width: $lg) {
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $brown-1;
+        transform: translateX(-100%);
+        z-index: -1;
+        transition: all 0.3s ease;
+        opacity: 0;
+      }
+      &:hover {
+        color: #fff;
+        border: 1px solid $brown-1;
+        &::after {
+          transform: none;
+          opacity: 1;
+        }
       }
     }
   }

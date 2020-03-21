@@ -2,16 +2,18 @@
   <header ref="header" class="l-header">
     <div class="p-header">
       <div class="p-header__logo">
-        <nuxt-link to="/">
-          <img src="https://placehold.jp/250x80.png" alt="ロゴ" />
-        </nuxt-link>
+        <nuxt-link to="/">Portfolio</nuxt-link>
       </div>
       <div class="p-header__primary">
         <nav class="p-gnav">
           <ul class="p-gnav__list">
             <li class="p-gnav__list-item">
-              <nuxt-link v-scroll-to="'#news'" to class="p-gnav__link">
-                <span class="p-gnav__text-ja">最新情報</span>
+              <nuxt-link
+                v-scroll-to="{ el: '#post', offset: -headerHeight }"
+                to
+                class="p-gnav__link"
+              >
+                <span class="p-gnav__text-ja">ニュース</span>
                 <span class="p-gnav__text-en">news</span>
               </nuxt-link>
             </li>
@@ -68,7 +70,11 @@
       <div class="p-burger-menu" v-if="navToggle">
         <ul class="p-burger-menu__list">
           <li class="p-burger-menu__list-item">
-            <nuxt-link to="#news" class="p-burger-menu__link">最新情報</nuxt-link>
+            <nuxt-link
+              v-scroll-to="{ el: '#post', offset: -headerHeight }"
+              to
+              class="p-burger-menu__link"
+            >ニュース</nuxt-link>
           </li>
           <li class="p-burger-menu__list-item" @click="tabChange(1)">
             <nuxt-link
@@ -82,14 +88,14 @@
               v-scroll-to="{ el: '#post', offset: -headerHeight }"
               to
               class="p-burger-menu__link"
-            >グッズ紹介</nuxt-link>
+            >客室</nuxt-link>
           </li>
           <li class="p-burger-menu__list-item" @click="tabChange(3)">
             <nuxt-link
               v-scroll-to="{ el: '#post', offset: -headerHeight }"
               to
               class="p-burger-menu__link"
-            >設置場所</nuxt-link>
+            >交通</nuxt-link>
           </li>
         </ul>
         <div class="p-sns">
@@ -134,9 +140,6 @@ export default {
   z-index: 50;
 }
 .p-header {
-  // max-width: 1440px;
-  // margin-left: auto;
-  // margin-right: auto;
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
@@ -145,8 +148,6 @@ export default {
   background-color: rgba($brown-1, 0.8);
   z-index: 100;
   height: 117px;
-  // max-width: 1440px;
-  // margin: auto;
   @include md {
     height: 90px;
   }
@@ -154,13 +155,8 @@ export default {
     height: 70px;
   }
   &__logo {
-    max-width: 200px;
-    @include lg {
-      max-width: 150px;
-    }
-    @include sm {
-      max-width: 100px;
-    }
+    font-size: 2.6rem;
+    color: #fff;
   }
   &__primary {
     display: flex;
@@ -326,7 +322,7 @@ export default {
   &__link {
     display: block;
     padding: 40px 0;
-    font-size: 3.6rem;
+    font-size: 2.6rem;
     @include sm {
       padding: 30px 0;
       font-size: 2rem;

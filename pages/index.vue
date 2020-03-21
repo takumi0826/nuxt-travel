@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-    <!-- <loading /> -->
+    <loading />
   </div>
 </template>
 
@@ -43,6 +43,7 @@ import Concept from '~/components/Concept.vue'
 import Post from '~/components/Post.vue'
 import Particles from '~/components/Particles.vue'
 import Service from '~/components/Service.vue'
+import Loading from '~/components/layouts/Loading.vue'
 
 export default {
   components: {
@@ -50,7 +51,8 @@ export default {
     Concept,
     Post,
     Particles,
-    Service
+    Service,
+    Loading
   }
 }
 </script>
@@ -99,6 +101,49 @@ export default {
     margin-top: 8px;
     font-size: 3.6rem;
     display: block;
+  }
+}
+.c-button {
+  display: inline-block;
+  border-radius: 25px;
+  border: 1px solid #eee;
+  width: 260px;
+  line-height: 50px;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  transition: all 0.3s;
+  @include lg {
+    background-color: $brown-1;
+    color: #fff;
+    border: 1px solid $brown-1;
+  }
+  @media (min-width: $lg) {
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: $brown-1;
+      transform: translateX(-100%);
+      z-index: -1;
+      transition: all 0.3s ease;
+      opacity: 0;
+    }
+    &:hover {
+      color: #fff;
+      border: 1px solid $brown-1;
+      &::after {
+        // content: "";
+        // position: absolute;
+        // left: 0;
+        // top: 0;
+        transform: none;
+        opacity: 1;
+      }
+    }
   }
 }
 </style>

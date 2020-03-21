@@ -39,7 +39,7 @@ export default {
           clickable: true
         },
         breakpoints: {
-          768: {
+          1044: {
             slidesPerView: 1
           }
         }
@@ -53,6 +53,9 @@ export default {
 .p-main-visual {
   padding: 147px 0 100px;
   // padding: 0 0 100px;
+  @include lg {
+    padding: 117px 0 80px;
+  }
   @include md {
     padding: 90px 0 70px;
   }
@@ -65,6 +68,9 @@ export default {
   img {
     width: 100%;
     height: 70vh;
+    @include lg {
+      height: 55vh;
+    }
     @include sm {
       height: 45vh;
     }
