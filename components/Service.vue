@@ -1,33 +1,39 @@
 <template>
   <div class="p-service">
     <ul class="p-service__items">
-      <li class="p-service__item" data-aos="fade-up">
-        <nuxt-link to="/" class="p-service__link">
-          <p class="p-service__text">客室1</p>
-          <img src="~/assets/img/material01.jpg" alt />
-        </nuxt-link>
-      </li>
-      <li class="p-service__item" data-aos="fade-up">
-        <nuxt-link to="#" class="p-service__link">
-          <p class="p-service__text">朝食</p>
-          <img src="~/assets/img/material05.jpg" alt />
-        </nuxt-link>
-      </li>
-      <li class="p-service__item" data-aos="fade-up">
-        <nuxt-link to="#" class="p-service__link">
-          <p class="p-service__text">夕食</p>
-          <img src="~/assets/img/material03.jpg" alt />
-        </nuxt-link>
-      </li>
-      <li class="p-service__item" data-aos="fade-up">
-        <nuxt-link to="#" class="p-service__link">
-          <p class="p-service__text">客室2</p>
-          <img src="~/assets/img/material04.jpg" alt />
+      <li
+        v-for="(item,index) in serviceItems"
+        :key="index"
+        class="p-service__item"
+        data-aos="fade-up"
+      >
+        <nuxt-link :to="item.link" class="p-service__link">
+          <p class="p-service__text">{{item.text}}</p>
+          <img :src="item.src" />
         </nuxt-link>
       </li>
     </ul>
   </div>
 </template>
+
+<script>
+import image01 from '~/assets/img/material01.jpg'
+import image02 from '~/assets/img/material02.jpg'
+import image03 from '~/assets/img/material03.jpg'
+import image04 from '~/assets/img/material04.jpg'
+export default {
+  data() {
+    return {
+      serviceItems: [
+        { link: '/', text: '客室1', src: image01 },
+        { link: '/', text: '朝食', src: image02 },
+        { link: '/', text: '夕食', src: image03 },
+        { link: '/', text: '客室2', src: image04 }
+      ]
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 .p-service {
@@ -122,7 +128,7 @@
     left: 0;
     right: 100%;
   }
-  50% {
+  60% {
     left: 0;
     right: 0;
   }

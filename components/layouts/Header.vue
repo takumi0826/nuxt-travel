@@ -6,8 +6,8 @@
       </div>
       <div class="p-header__primary">
         <nav class="p-gnav">
-          <ul class="p-gnav__list">
-            <li class="p-gnav__list-item">
+          <ul class="p-gnav__items">
+            <li class="p-gnav__item">
               <nuxt-link
                 v-scroll-to="{ el: '#post', offset: -headerHeight }"
                 to
@@ -17,7 +17,7 @@
                 <span class="p-gnav__text-en">news</span>
               </nuxt-link>
             </li>
-            <li class="p-gnav__list-item" @click="tabChange(1)">
+            <li class="p-gnav__item" @click="tabChange(1)">
               <nuxt-link
                 v-scroll-to="{ el: '#post', offset: -headerHeight }"
                 to
@@ -27,7 +27,7 @@
                 <span class="p-gnav__text-en">cooking</span>
               </nuxt-link>
             </li>
-            <li class="p-gnav__list-item" @click="tabChange(2)">
+            <li class="p-gnav__item" @click="tabChange(2)">
               <nuxt-link
                 v-scroll-to="{ el: '#post', offset: -headerHeight }"
                 to
@@ -37,7 +37,7 @@
                 <span class="p-gnav__text-en">rooms</span>
               </nuxt-link>
             </li>
-            <li class="p-gnav__list-item" @click="tabChange(3)">
+            <li class="p-gnav__item" @click="tabChange(3)">
               <nuxt-link
                 v-scroll-to="{ el: '#post', offset: -headerHeight }"
                 to
@@ -50,11 +50,11 @@
           </ul>
         </nav>
         <div class="p-privacy">
-          <ul class="p-privacy__list">
-            <li class="p-privacy__list-item p-privacy__list-item--login">
+          <ul class="p-privacy__items">
+            <li class="p-privacy__item p-privacy__item--login">
               <a href class="p-privacy__link">WEB予約</a>
             </li>
-            <li class="p-privacy__list-item p-privacy__list-item--register">
+            <li class="p-privacy__item p-privacy__item--register">
               <a href class="p-privacy__link">お問い合わせ</a>
             </li>
           </ul>
@@ -67,38 +67,38 @@
       </div>
     </div>
     <transition name="fade">
-      <div class="p-burger-menu" v-if="navToggle">
-        <ul class="p-burger-menu__list">
-          <li class="p-burger-menu__list-item">
+      <div class="p-burgerMenu" v-if="navToggle">
+        <ul class="p-burgerMenu__items">
+          <li class="p-burgerMenu__item">
             <nuxt-link
               v-scroll-to="{ el: '#post', offset: -headerHeight }"
               to
-              class="p-burger-menu__link"
+              class="p-burgerMenu__link"
             >ニュース</nuxt-link>
           </li>
-          <li class="p-burger-menu__list-item" @click="tabChange(1)">
+          <li class="p-burgerMenu__item" @click="tabChange(1)">
             <nuxt-link
               v-scroll-to="{ el: '#post', offset: -headerHeight }"
               to
-              class="p-burger-menu__link"
+              class="p-burgerMenu__link"
             >お料理</nuxt-link>
           </li>
-          <li class="p-burger-menu__list-item" @click="tabChange(2)">
+          <li class="p-burgerMenu__item" @click="tabChange(2)">
             <nuxt-link
               v-scroll-to="{ el: '#post', offset: -headerHeight }"
               to
-              class="p-burger-menu__link"
+              class="p-burgerMenu__link"
             >客室</nuxt-link>
           </li>
-          <li class="p-burger-menu__list-item" @click="tabChange(3)">
+          <li class="p-burgerMenu__item" @click="tabChange(3)">
             <nuxt-link
               v-scroll-to="{ el: '#post', offset: -headerHeight }"
               to
-              class="p-burger-menu__link"
+              class="p-burgerMenu__link"
             >交通</nuxt-link>
           </li>
         </ul>
-        <div class="p-sns">
+        <div class="p-burgerMenu__sns">
           <font-awesome-icon :icon="['fab', 'twitter']" />
           <font-awesome-icon :icon="['fab', 'github']" />
         </div>
@@ -167,12 +167,12 @@ export default {
   }
 }
 .p-gnav {
-  &__list {
+  &__items {
     display: flex;
     align-items: center;
     margin: auto;
   }
-  &__list-item {
+  &__item {
     border-left: 1px solid #fff;
     position: relative;
     &:first-child {
@@ -212,20 +212,20 @@ export default {
     }
   }
   &__text-en {
+    display: block;
     font-size: 1.4rem;
     @include xl {
       font-size: 1.2rem;
     }
-    display: block;
   }
 }
 .p-privacy {
-  &__list {
+  &__items {
     margin: auto;
     display: flex;
     align-items: center;
   }
-  &__list-item {
+  &__item {
     width: 100px;
     text-align: center;
     background-color: #fff;
@@ -291,7 +291,7 @@ export default {
     height: 18px;
   }
 }
-.p-burger-menu {
+.p-burgerMenu {
   position: fixed;
   left: 0;
   top: 0;
@@ -299,14 +299,12 @@ export default {
   height: 100%;
   background-color: #fff;
   z-index: 80;
-  // background-color: $brown-1;
-  &__list {
+  &__items {
     padding: 140px 20px 40px;
   }
-  &__list-item {
+  &__item {
     opacity: 0;
     text-align: center;
-    // color: $brown-1;
     animation-name: burger-animation;
     animation-duration: 300ms;
     animation-iteration-count: 1;
@@ -328,21 +326,21 @@ export default {
       font-size: 2rem;
     }
   }
-}
-.p-sns {
-  text-align: center;
-  .svg-inline--fa {
-    width: 30px;
-    height: 30px;
-    &:nth-child(1) {
-      path {
-        fill: #1da1f2;
+  &__sns {
+    text-align: center;
+    .svg-inline--fa {
+      width: 30px;
+      height: 30px;
+      &:nth-child(1) {
+        path {
+          fill: #1da1f2;
+        }
       }
-    }
-    &:nth-child(2) {
-      margin-left: 10px;
-      path {
-        fill: #171515;
+      &:nth-child(2) {
+        margin-left: 10px;
+        path {
+          fill: #171515;
+        }
       }
     }
   }

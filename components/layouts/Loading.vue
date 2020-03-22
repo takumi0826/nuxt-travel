@@ -1,8 +1,8 @@
 <template>
   <transition name="load">
     <div class="c-loading" v-if="loading">
-      <div class="p-animation-text">
-        <span class="p-char">{{ text }}</span>
+      <div class="c-loading__block">
+        <span class="c-loading__text">{{ text }}</span>
       </div>
     </div>
   </transition>
@@ -64,46 +64,46 @@ export default {
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
   }
-}
-.p-animation-text {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  animation-name: text-animation;
-  animation-duration: 1s;
-  animation-fill-mode: both;
-  animation-iteration-count: 1;
-  animation-timing-function: linear;
-  z-index: 200;
-  &::after {
-    content: '';
+  &__block {
     position: absolute;
-    left: 0;
-    right: 100%;
-    bottom: 0;
-    height: 4px;
-    background-color: #fff;
-    animation-name: text-animationAfter;
-    animation-duration: 0.8s;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    animation-name: text-animation;
+    animation-duration: 1s;
     animation-fill-mode: both;
     animation-iteration-count: 1;
-    animation-timing-function: ease-in;
+    animation-timing-function: linear;
+    z-index: 200;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: 0;
+      height: 4px;
+      background-color: #fff;
+      animation-name: text-animationAfter;
+      animation-duration: 0.8s;
+      animation-fill-mode: both;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-in;
+    }
   }
-}
-.p-char {
-  font-size: 3rem;
-  color: #fff;
-  opacity: 1;
-  display: inline-block;
-  margin: 0 2px;
-  // @for $i from 1 through 5 {
-  //   &:nth-child(#{$i}) {
-  //     animation-delay: 0.05s * $i;
-  //   }
-  // }
-  @include sm {
-    font-size: 2.4rem;
+  &__text {
+    font-size: 3rem;
+    color: #fff;
+    opacity: 1;
+    display: inline-block;
+    margin: 0 2px;
+    // @for $i from 1 through 5 {
+    //   &:nth-child(#{$i}) {
+    //     animation-delay: 0.05s * $i;
+    //   }
+    // }
+    @include sm {
+      font-size: 2.4rem;
+    }
   }
 }
 @keyframes text-animation {

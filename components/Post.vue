@@ -22,54 +22,54 @@
     </ul>
     <ul class="p-post__contents">
       <li class="p-post__content" v-if="tabNumber === 1">
-        <div class="p-post__contentBlock">
+        <div class="p-post__block">
           <span class="p-post__date">2020.01.12</span>
           <h3 class="p-post__title">テキスト1テキスト1テキスト1</h3>
         </div>
-        <div class="p-post__contentBlock">
+        <div class="p-post__block">
           <span class="p-post__date">2020.01.12</span>
           <h3 class="p-post__title">テキスト1テキスト1テキスト1</h3>
         </div>
-        <div class="p-post__contentBlock">
+        <div class="p-post__block">
           <span class="p-post__date">2020.01.12</span>
           <h3 class="p-post__title">テキスト1テキスト1テキスト1</h3>
         </div>
         <div class="p-post__btnWrap">
-          <a href="/topic" class="c-button">一覧を見る</a>
+          <nuxt-link to="/" class="c-button">一覧を見る</nuxt-link>
         </div>
       </li>
       <li class="p-post__content" v-if="tabNumber === 2">
-        <div class="p-post__contentBlock">
+        <div class="p-post__block">
           <span class="p-post__date">2020.01.12</span>
           <h3 class="p-post__title">テキスト2テキスト2テキスト2</h3>
         </div>
-        <div class="p-post__contentBlock">
+        <div class="p-post__block">
           <span class="p-post__date">2020.01.12</span>
           <h3 class="p-post__title">テキスト2テキスト2テキスト2</h3>
         </div>
-        <div class="p-post__contentBlock">
+        <div class="p-post__block">
           <span class="p-post__date">2020.01.12</span>
           <h3 class="p-post__title">テキスト2テキスト2テキスト2</h3>
         </div>
         <div class="p-post__btnWrap">
-          <a href="/news" class="c-button">一覧を見る</a>
+          <nuxt-link to="/" class="c-button">一覧を見る</nuxt-link>
         </div>
       </li>
       <li class="p-post__content" v-if="tabNumber === 3">
-        <div class="p-post__contentBlock">
+        <div class="p-post__block">
           <span class="p-post__date">2020.01.12</span>
           <h3 class="p-post__title">テキスト3テキスト3テキスト3</h3>
         </div>
-        <div class="p-post__contentBlock">
+        <div class="p-post__block">
           <span class="p-post__date">2020.01.12</span>
           <h3 class="p-post__title">テキスト3テキスト3テキスト3</h3>
         </div>
-        <div class="p-post__contentBlock">
+        <div class="p-post__block">
           <span class="p-post__date">2020.01.12</span>
           <h3 class="p-post__title">テキスト3テキスト3テキスト3</h3>
         </div>
         <div class="p-post__btnWrap">
-          <a href="/column" class="c-button">一覧を見る</a>
+          <nuxt-link to="/" class="c-button">一覧を見る</nuxt-link>
         </div>
       </li>
     </ul>
@@ -149,7 +149,7 @@ export default {
   }
   &__content {
   }
-  &__contentBlock {
+  &__block {
     padding: 24px 0;
     border-bottom: 1px solid #eee;
     display: flex;

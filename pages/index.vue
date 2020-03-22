@@ -3,7 +3,7 @@
     <swiper />
     <div class="l-home-content">
       <div class="l-container">
-        <h2 id="post" class="c-heading-2" data-aos="fade-in">
+        <h2 id="post" class="c-heading-lg" data-aos="fade-in">
           <span class="en">News</span>
           <span class="ja">ニュース</span>
         </h2>
@@ -14,7 +14,7 @@
     <div class="l-home-content">
       <div class="l-concept">
         <div class="l-container">
-          <h2 class="c-heading-2" data-aos="fade-in">
+          <h2 class="c-heading-lg" data-aos="fade-in">
             <span class="en">Concept</span>
             <span class="ja">コンセプト</span>
           </h2>
@@ -25,7 +25,7 @@
     <div class="l-home-content">
       <div class="l-service">
         <div class="l-container">
-          <h2 id="post" class="c-heading-2" data-aos="fade-in">
+          <h2 id="post" class="c-heading-lg" data-aos="fade-in">
             <span class="en">Service</span>
             <span class="ja">サービス</span>
           </h2>
@@ -88,7 +88,7 @@ export default {
 //     padding: 80px 0 60px;
 //   }
 // }
-.c-heading-2 {
+.c-heading-lg {
   text-align: center;
   padding-bottom: 50px;
   .en {
