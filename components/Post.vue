@@ -107,7 +107,7 @@ export default {
     transition: all 0.3s;
     position: relative;
     font-size: 2.4rem;
-    padding: 30px 0;
+    padding: 25px 0;
     @include xl {
       padding: 20px 0;
       font-size: 1.8rem;

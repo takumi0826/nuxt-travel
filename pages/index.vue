@@ -59,7 +59,7 @@ export default {
 
 <style lang="scss">
 .l-container {
-  max-width: 1440px;
+  max-width: 1100px;
   margin-left: auto;
   margin-right: auto;
   @include xl {
