@@ -1,9 +1,9 @@
 export const state = () => ({
-  tabNumber: 1
+  currentTab: 'cooking'
 })
 
 export const mutations = {
-  tabChange(state, num) {
-    state.tabNumber = num
+  tabChange(state, val) {
+    state.currentTab = val
   }
 }

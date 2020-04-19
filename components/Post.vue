@@ -2,87 +2,72 @@
   <div class="p-post" data-aos="fade-up">
     <ul class="p-post__catItems">
       <li
-        id="cooking"
-        class="p-post__catItem"
-        @click="tabChange(1)"
-        :class="{ 'is-active': tabNumber === 1 }"
-      >お料理</li>
-      <li
-        id="rooms"
-        class="p-post__catItem"
-        @click="tabChange(2)"
-        :class="{ 'is-active': tabNumber === 2 }"
-      >客室</li>
-      <li
-        id="access"
-        class="p-post__catItem"
-        @click="tabChange(3)"
-        :class="{ 'is-active': tabNumber === 3 }"
-      >交通</li>
+        v-for="(tab, index) in tabs"
+        :key="index"
+        :id="tab.id"
+        :class="['p-post__catItem',{ 'is-active': tab.id === currentTab }]"
+        @click="tabChange(tab.id)"
+      >{{ tab.title }}</li>
     </ul>
-    <ul class="p-post__contents">
-      <li class="p-post__content" v-if="tabNumber === 1">
-        <div class="p-post__block">
-          <span class="p-post__date">2020.01.12</span>
-          <h3 class="p-post__title">テキスト1テキスト1テキスト1</h3>
+    <div class="p-post__contents">
+      <template v-for="post in postData">
+        <div class="p-post__content" v-if="post.id === currentTab" :key="post.id">
+          <div class="p-post__block" v-for="(list,index) in post.item" :key="index">
+            <span class="p-post__date">{{list.date}}</span>
+            <h3 class="p-post__title">{{list.text}}</h3>
+          </div>
+          <div class="p-post__btnWrap">
+            <nuxt-link :to="post.href" class="c-button">一覧を見る</nuxt-link>
+          </div>
         </div>
-        <div class="p-post__block">
-          <span class="p-post__date">2020.01.12</span>
-          <h3 class="p-post__title">テキスト1テキスト1テキスト1</h3>
-        </div>
-        <div class="p-post__block">
-          <span class="p-post__date">2020.01.12</span>
-          <h3 class="p-post__title">テキスト1テキスト1テキスト1</h3>
-        </div>
-        <div class="p-post__btnWrap">
-          <nuxt-link to="/" class="c-button">一覧を見る</nuxt-link>
-        </div>
-      </li>
-      <li class="p-post__content" v-if="tabNumber === 2">
-        <div class="p-post__block">
-          <span class="p-post__date">2020.01.12</span>
-          <h3 class="p-post__title">テキスト2テキスト2テキスト2</h3>
-        </div>
-        <div class="p-post__block">
-          <span class="p-post__date">2020.01.12</span>
-          <h3 class="p-post__title">テキスト2テキスト2テキスト2</h3>
-        </div>
-        <div class="p-post__block">
-          <span class="p-post__date">2020.01.12</span>
-          <h3 class="p-post__title">テキスト2テキスト2テキスト2</h3>
-        </div>
-        <div class="p-post__btnWrap">
-          <nuxt-link to="/" class="c-button">一覧を見る</nuxt-link>
-        </div>
-      </li>
-      <li class="p-post__content" v-if="tabNumber === 3">
-        <div class="p-post__block">
-          <span class="p-post__date">2020.01.12</span>
-          <h3 class="p-post__title">テキスト3テキスト3テキスト3</h3>
-        </div>
-        <div class="p-post__block">
-          <span class="p-post__date">2020.01.12</span>
-          <h3 class="p-post__title">テキスト3テキスト3テキスト3</h3>
-        </div>
-        <div class="p-post__block">
-          <span class="p-post__date">2020.01.12</span>
-          <h3 class="p-post__title">テキスト3テキスト3テキスト3</h3>
-        </div>
-        <div class="p-post__btnWrap">
-          <nuxt-link to="/" class="c-button">一覧を見る</nuxt-link>
-        </div>
-      </li>
-    </ul>
+      </template>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 export default {
-  computed: {
-    tabNumber() {
-      return this.$store.state.tabNumber
+  data() {
+    return {
+      tabs: [
+        { title: 'お料理', id: 'cooking' },
+        { title: '客室', id: 'rooms' },
+        { title: '交通', id: 'access' }
+      ],
+      postData: [
+        {
+          id: 'cooking',
+          href: '/',
+          item: [
+            { date: '2020.04.17', text: 'テキスト１テキスト１' },
+            { date: '2020.04.09', text: 'テキスト１' },
+            { date: '2020.02.21', text: 'テキスト１テキスト１' }
+          ]
+        },
+        {
+          id: 'rooms',
+          href: '/',
+          item: [
+            { date: '2020.04.11', text: 'テキスト2' },
+            { date: '2020.03.21', text: 'テキスト2テキスト2テキスト2' },
+            { date: '2020.02.01', text: 'テキスト2テキスト2' }
+          ]
+        },
+        {
+          id: 'access',
+          href: '/',
+          item: [
+            { date: '2020.01.01', text: 'テキスト3テキスト3' },
+            { date: '2019.12.21', text: 'テキスト3テキスト3テキスト3' },
+            { date: '2019.11.11', text: 'テキスト3' }
+          ]
+        }
+      ]
     }
+  },
+  computed: {
+    ...mapState(['currentTab'])
   },
   methods: {
     ...mapMutations(['tabChange'])
@@ -92,7 +77,6 @@ export default {
 
 <style lang="scss">
 .p-post {
-  padding-bottom: 60px;
   background-color: #fff;
   @include sm {
     margin: 0 -20px;
@@ -142,9 +126,9 @@ export default {
     }
   }
   &__contents {
-    padding: 20px 80px 0;
+    padding: 40px 80px 60px;
     @include sm {
-      padding: 20px 20px 0;
+      padding: 20px 20px 40px;
     }
   }
   &__content {
@@ -181,42 +165,42 @@ export default {
     margin-top: 30px;
     text-align: center;
   }
-  .c-button {
-    display: inline-block;
-    border-radius: 25px;
-    border: 1px solid #eee;
-    width: 260px;
-    line-height: 50px;
-    position: relative;
-    overflow: hidden;
-    z-index: 0;
-    transition: all 0.3s;
-    @include lg {
+}
+.c-button {
+  display: inline-block;
+  border-radius: 25px;
+  border: 1px solid #eee;
+  width: 260px;
+  line-height: 50px;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  transition: all 0.3s;
+  @include lg {
+    background-color: $brown-1;
+    color: #fff;
+    border: 1px solid $brown-1;
+  }
+  @media (min-width: $lg) {
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
       background-color: $brown-1;
+      transform: translateX(-100%);
+      z-index: -1;
+      transition: all 0.3s ease;
+      opacity: 0;
+    }
+    &:hover {
       color: #fff;
       border: 1px solid $brown-1;
-    }
-    @media (min-width: $lg) {
-      &:after {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: $brown-1;
-        transform: translateX(-100%);
-        z-index: -1;
-        transition: all 0.3s ease;
-        opacity: 0;
-      }
-      &:hover {
-        color: #fff;
-        border: 1px solid $brown-1;
-        &::after {
-          transform: none;
-          opacity: 1;
-        }
+      &::after {
+        transform: none;
+        opacity: 1;
       }
     }
   }
