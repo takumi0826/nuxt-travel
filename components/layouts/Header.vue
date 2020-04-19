@@ -17,7 +17,7 @@
                 <span class="p-gnav__text-en">news</span>
               </nuxt-link>
             </li>
-            <li class="p-gnav__item" @click="tabChange(1)">
+            <li class="p-gnav__item" @click="tabChange('cooking')">
               <nuxt-link
                 v-scroll-to="{ el: '#post', offset: -headerHeight }"
                 to
@@ -27,7 +27,7 @@
                 <span class="p-gnav__text-en">cooking</span>
               </nuxt-link>
             </li>
-            <li class="p-gnav__item" @click="tabChange(2)">
+            <li class="p-gnav__item" @click="tabChange('rooms')">
               <nuxt-link
                 v-scroll-to="{ el: '#post', offset: -headerHeight }"
                 to
@@ -37,7 +37,7 @@
                 <span class="p-gnav__text-en">rooms</span>
               </nuxt-link>
             </li>
-            <li class="p-gnav__item" @click="tabChange(3)">
+            <li class="p-gnav__item" @click="tabChange('access')">
               <nuxt-link
                 v-scroll-to="{ el: '#post', offset: -headerHeight }"
                 to
@@ -60,56 +60,23 @@
           </ul>
         </div>
       </div>
-      <div class="c-burger" :class="{ 'is-open': navToggle }" @click="navOpen">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <l-hamburger :navToggle="navToggle" @toggle="navOpen" />
     </div>
     <transition name="fade">
-      <div class="p-burgerMenu" v-if="navToggle">
-        <ul class="p-burgerMenu__items">
-          <li class="p-burgerMenu__item">
-            <nuxt-link
-              v-scroll-to="{ el: '#post', offset: -headerHeight }"
-              to
-              class="p-burgerMenu__link"
-            >ニュース</nuxt-link>
-          </li>
-          <li class="p-burgerMenu__item" @click="tabChange(1)">
-            <nuxt-link
-              v-scroll-to="{ el: '#post', offset: -headerHeight }"
-              to
-              class="p-burgerMenu__link"
-            >お料理</nuxt-link>
-          </li>
-          <li class="p-burgerMenu__item" @click="tabChange(2)">
-            <nuxt-link
-              v-scroll-to="{ el: '#post', offset: -headerHeight }"
-              to
-              class="p-burgerMenu__link"
-            >客室</nuxt-link>
-          </li>
-          <li class="p-burgerMenu__item" @click="tabChange(3)">
-            <nuxt-link
-              v-scroll-to="{ el: '#post', offset: -headerHeight }"
-              to
-              class="p-burgerMenu__link"
-            >交通</nuxt-link>
-          </li>
-        </ul>
-        <div class="p-burgerMenu__sns">
-          <font-awesome-icon :icon="['fab', 'twitter']" />
-          <font-awesome-icon :icon="['fab', 'github']" />
-        </div>
-      </div>
+      <l-sideMenu :headerHeight="headerHeight" @closeMenu="navToggle = false" v-show="navToggle" />
     </transition>
   </header>
 </template>
 
 <script>
+import lHamburger from '~/components/layouts/Hamburger'
+import lSideMenu from '~/components/layouts/SideMenu'
 import { mapMutations } from 'vuex'
 export default {
+  components: {
+    lHamburger,
+    lSideMenu
+  },
   data() {
     return {
       navToggle: false,
@@ -245,106 +212,7 @@ export default {
     font-size: 1.4rem;
   }
 }
-.c-burger {
-  display: none;
-  @include lg {
-    display: block;
-    width: 40px;
-    height: 22px;
-    position: relative;
-    z-index: 100;
-    > span {
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      background-color: #fff;
-      transform: translateY(-50%);
-      transition: 0.3s;
-      &:nth-child(1) {
-        top: 0;
-      }
-      &:nth-child(2) {
-        top: 50%;
-      }
-      &:nth-child(3) {
-        top: 100%;
-      }
-    }
-    &.is-open {
-      > span {
-        &:nth-child(1) {
-          top: 50%;
-          transform: translate(0, -50%) rotate(45deg);
-        }
-        &:nth-child(2) {
-          opacity: 0;
-        }
-        &:nth-child(3) {
-          top: 50%;
-          transform: translate(0, -50%) rotate(135deg);
-        }
-      }
-    }
-  }
-  @include sm {
-    width: 30px;
-    height: 18px;
-  }
-}
-.p-burgerMenu {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-  z-index: 80;
-  &__items {
-    padding: 140px 20px 40px;
-  }
-  &__item {
-    opacity: 0;
-    text-align: center;
-    animation-name: burger-animation;
-    animation-duration: 300ms;
-    animation-iteration-count: 1;
-    animation-timing-function: ease;
-    animation-fill-mode: both;
 
-    @for $i from 1 through 4 {
-      &:nth-child(#{$i}) {
-        animation-delay: 100ms * $i;
-      }
-    }
-  }
-  &__link {
-    display: block;
-    padding: 40px 0;
-    font-size: 2.6rem;
-    @include sm {
-      padding: 30px 0;
-      font-size: 2rem;
-    }
-  }
-  &__sns {
-    text-align: center;
-    .svg-inline--fa {
-      width: 30px;
-      height: 30px;
-      &:nth-child(1) {
-        path {
-          fill: #1da1f2;
-        }
-      }
-      &:nth-child(2) {
-        margin-left: 10px;
-        path {
-          fill: #171515;
-        }
-      }
-    }
-  }
-}
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
@@ -352,15 +220,5 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
-}
-@keyframes burger-animation {
-  0% {
-    opacity: 0;
-    transform: translate(100%, 0);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(0, 0);
-  }
 }
 </style>
