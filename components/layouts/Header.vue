@@ -51,10 +51,10 @@
         </nav>
         <div class="p-privacy">
           <ul class="p-privacy__items">
-            <li class="p-privacy__item p-privacy__item--login">
+            <li class="p-privacy__item p-privacy__item--web">
               <a href class="p-privacy__link">WEB予約</a>
             </li>
-            <li class="p-privacy__item p-privacy__item--register">
+            <li class="p-privacy__item p-privacy__item--contact">
               <a href class="p-privacy__link">お問い合わせ</a>
             </li>
           </ul>
@@ -197,9 +197,9 @@ export default {
     text-align: center;
     background-color: #fff;
     border-radius: 5px;
-    &--login {
+    &--web {
     }
-    &--register {
+    &--contact {
       margin-left: 10px;
     }
   }
