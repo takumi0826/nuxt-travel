@@ -7,7 +7,7 @@
         class="p-service__item"
         data-aos="fade-up"
       >
-        <nuxt-link :to="item.link" class="p-service__link">
+        <nuxt-link :to="item.href" class="p-service__link">
           <p class="p-service__text">{{item.text}}</p>
           <img :src="item.src" />
         </nuxt-link>
@@ -17,18 +17,30 @@
 </template>
 
 <script>
-import image01 from '~/assets/img/material01.jpg'
-import image02 from '~/assets/img/material02.jpg'
-import image03 from '~/assets/img/material03.jpg'
-import image04 from '~/assets/img/material04.jpg'
 export default {
   data() {
     return {
       serviceItems: [
-        { link: '/', text: '客室1', src: image01 },
-        { link: '/', text: '朝食', src: image02 },
-        { link: '/', text: '夕食', src: image03 },
-        { link: '/', text: '客室2', src: image04 }
+        {
+          href: '/',
+          text: '客室1',
+          src: require('~/assets/img/material01.jpg')
+        },
+        {
+          href: '/',
+          text: '朝食',
+          src: require('~/assets/img/material02.jpg')
+        },
+        {
+          href: '/',
+          text: '夕食',
+          src: require('~/assets/img/material03.jpg')
+        },
+        {
+          href: '/',
+          text: '客室2',
+          src: require('~/assets/img/material04.jpg')
+        }
       ]
     }
   }
