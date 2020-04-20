@@ -20,7 +20,7 @@
         <concept />
       </div>
     </div>
-    <div class="l-section">
+    <div class="l-section l-section--service">
       <div class="l-container">
         <h2 id="post" class="c-heading" data-aos="fade-in">
           <span class="c-heading__textEn">Service</span>
