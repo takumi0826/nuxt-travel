@@ -28,6 +28,7 @@
     width: 70px;
     height: 70px;
   }
+
   &__triangle {
     display: block;
     width: 0;
@@ -42,6 +43,7 @@
     animation-timing-function: ease;
     animation-fill-mode: both;
   }
+
   &__text {
     display: block;
     margin-top: 8px;
@@ -55,6 +57,7 @@
     }
   }
 }
+
 @keyframes scroll-top {
   0% {
     transform: translateY(-60%);

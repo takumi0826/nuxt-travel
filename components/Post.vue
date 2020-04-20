@@ -81,9 +81,11 @@ export default {
   @include sm {
     margin: 0 -20px;
   }
+
   &__catItems {
     display: flex;
   }
+
   &__catItem {
     background-color: #f0efef;
     width: calc(100% / 3);
@@ -118,6 +120,7 @@ export default {
       }
     }
   }
+
   &__list {
     padding: 40px;
     background-color: #fff;
@@ -125,14 +128,17 @@ export default {
       padding: 30px 20px;
     }
   }
+
   &__contents {
     padding: 40px 80px 60px;
     @include sm {
       padding: 20px 20px 40px;
     }
   }
+
   &__content {
   }
+
   &__block {
     padding: 24px 0;
     border-bottom: 1px solid #eee;
@@ -146,6 +152,7 @@ export default {
       flex-direction: column;
     }
   }
+
   &__date {
     font-size: 1.4rem;
     color: #969696;
@@ -154,6 +161,7 @@ export default {
       width: 100%;
     }
   }
+
   &__title {
     @include sm {
       display: block;
@@ -161,6 +169,7 @@ export default {
       margin-top: 8px;
     }
   }
+
   &__btnWrap {
     margin-top: 30px;
     text-align: center;

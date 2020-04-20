@@ -1,36 +1,32 @@
 <template>
   <div class="l-wrapper">
     <swiper />
-    <div class="l-home-content">
+    <div class="l-section l-section--news">
       <div class="l-container">
-        <h2 id="post" class="c-heading-lg" data-aos="fade-in">
-          <span class="en">News</span>
-          <span class="ja">ニュース</span>
+        <h2 id="post" class="c-heading" data-aos="fade-in">
+          <span class="c-heading__textEn">News</span>
+          <span class="c-heading__textJa">ニュース</span>
         </h2>
         <post />
       </div>
       <particles />
     </div>
-    <div class="l-home-content">
-      <div class="l-concept">
-        <div class="l-container">
-          <h2 class="c-heading-lg" data-aos="fade-in">
-            <span class="en">Concept</span>
-            <span class="ja">コンセプト</span>
-          </h2>
-          <concept />
-        </div>
+    <div class="l-section l-section--concept">
+      <div class="l-container">
+        <h2 class="c-heading" data-aos="fade-in">
+          <span class="c-heading__textEn">Concept</span>
+          <span class="c-heading__textJa">コンセプト</span>
+        </h2>
+        <concept />
       </div>
     </div>
-    <div class="l-home-content">
-      <div class="l-service">
-        <div class="l-container">
-          <h2 id="post" class="c-heading-lg" data-aos="fade-in">
-            <span class="en">Service</span>
-            <span class="ja">サービス</span>
-          </h2>
-          <service />
-        </div>
+    <div class="l-section">
+      <div class="l-container">
+        <h2 id="post" class="c-heading" data-aos="fade-in">
+          <span class="c-heading__textEn">Service</span>
+          <span class="c-heading__textJa">サービス</span>
+        </h2>
+        <service />
       </div>
     </div>
     <loading />
@@ -67,83 +63,37 @@ export default {
     padding: 0 20px;
   }
 }
-.l-home-content {
-  margin-top: 120px;
-  position: relative;
-  @include xl {
-    margin-top: 80px;
-  }
-}
-.l-concept {
+
+.l-section {
   padding: 120px 0 80px;
-  background-color: #fff;
   @include xl {
     padding: 80px 0 60px;
   }
+
+  &--news {
+    position: relative;
+  }
+
+  &--concept {
+    background-color: #fff;
+  }
 }
-// .l-service {
-//   padding: 120px 0 80px;
-//   background-color: #fff;
-//   @include xl {
-//     padding: 80px 0 60px;
-//   }
-// }
-.c-heading-lg {
+
+.c-heading {
   text-align: center;
   padding-bottom: 50px;
-  .en {
+
+  &__textEn {
     font-family: 'Noto Sans JP';
     font-size: 1.4rem;
     display: block;
     letter-spacing: 0.1em;
   }
-  .ja {
+
+  &__textJa {
     margin-top: 8px;
     font-size: 3.6rem;
     display: block;
-  }
-}
-.c-button {
-  display: inline-block;
-  border-radius: 25px;
-  border: 1px solid #eee;
-  width: 260px;
-  line-height: 50px;
-  position: relative;
-  overflow: hidden;
-  z-index: 0;
-  transition: all 0.3s;
-  @include lg {
-    background-color: $brown-1;
-    color: #fff;
-    border: 1px solid $brown-1;
-  }
-  @media (min-width: $lg) {
-    &:after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: $brown-1;
-      transform: translateX(-100%);
-      z-index: -1;
-      transition: all 0.3s ease;
-      opacity: 0;
-    }
-    &:hover {
-      color: #fff;
-      border: 1px solid $brown-1;
-      &::after {
-        // content: "";
-        // position: absolute;
-        // left: 0;
-        // top: 0;
-        transform: none;
-        opacity: 1;
-      }
-    }
   }
 }
 </style>

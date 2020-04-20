@@ -1,10 +1,10 @@
 <template>
   <header ref="header" class="l-header">
-    <div class="p-header">
-      <div class="p-header__logo">
+    <div class="l-header__body">
+      <div class="l-header__logo">
         <nuxt-link to="/">Portfolio</nuxt-link>
       </div>
-      <div class="p-header__primary">
+      <div class="l-header__primary">
         <nav class="p-gnav">
           <ul class="p-gnav__items">
             <li class="p-gnav__item">
@@ -51,10 +51,10 @@
         </nav>
         <div class="p-privacy">
           <ul class="p-privacy__items">
-            <li class="p-privacy__item p-privacy__item--login">
+            <li class="p-privacy__item">
               <a href class="p-privacy__link">WEB予約</a>
             </li>
-            <li class="p-privacy__item p-privacy__item--register">
+            <li class="p-privacy__item">
               <a href class="p-privacy__link">お問い合わせ</a>
             </li>
           </ul>
@@ -105,26 +105,29 @@ export default {
   top: 0;
   width: 100%;
   z-index: 50;
-}
-.p-header {
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: relative;
-  background-color: rgba($brown-1, 0.8);
-  z-index: 100;
-  height: 117px;
-  @include md {
-    height: 90px;
+
+  &__body {
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background-color: rgba($brown-1, 0.8);
+    z-index: 100;
+    height: 117px;
+    @include md {
+      height: 90px;
+    }
+    @include sm {
+      height: 70px;
+    }
   }
-  @include sm {
-    height: 70px;
-  }
+
   &__logo {
     font-size: 2.6rem;
     color: #fff;
   }
+
   &__primary {
     display: flex;
     align-items: center;
@@ -133,12 +136,14 @@ export default {
     }
   }
 }
+
 .p-gnav {
   &__items {
     display: flex;
     align-items: center;
     margin: auto;
   }
+
   &__item {
     border-left: 1px solid #fff;
     position: relative;
@@ -164,6 +169,7 @@ export default {
       }
     }
   }
+
   &__link {
     padding: 0 30px;
     display: block;
@@ -171,6 +177,7 @@ export default {
     text-align: center;
     line-height: 1.4;
   }
+
   &__text-ja {
     display: block;
     font-size: 1.8rem;
@@ -178,6 +185,7 @@ export default {
       font-size: 1.6rem;
     }
   }
+
   &__text-en {
     display: block;
     font-size: 1.4rem;
@@ -186,23 +194,25 @@ export default {
     }
   }
 }
+
 .p-privacy {
   &__items {
     margin: auto;
     display: flex;
     align-items: center;
   }
+
   &__item {
     width: 100px;
     text-align: center;
     background-color: #fff;
     border-radius: 5px;
-    &--login {
-    }
-    &--register {
+
+    &:not(:first-child) {
       margin-left: 10px;
     }
   }
+
   &__link {
     height: 50px;
     display: flex;

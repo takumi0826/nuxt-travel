@@ -106,6 +106,7 @@ export default {
     }
   }
 }
+
 @keyframes text-animation {
   0% {
     opacity: 1;
@@ -117,6 +118,7 @@ export default {
     opacity: 0;
   }
 }
+
 @keyframes text-animationAfter {
   0% {
   }
@@ -131,6 +133,7 @@ export default {
     right: 0;
   }
 }
+
 @keyframes cover-slide1 {
   0% {
     transform: translate(0, 0);
@@ -139,6 +142,7 @@ export default {
     transform: translate(0, 100%);
   }
 }
+
 @keyframes cover-slide2 {
   0% {
     transform: translate(0, 0);
@@ -147,20 +151,4 @@ export default {
     transform: translate(0, -100%);
   }
 }
-// .load-enter,
-// .load-leave-to {
-//   opacity: 0;
-// }
-// .load-enter-active,
-// .load-leave-active {
-//   transition: opacity 1s;
-// }
-// .load-enter,
-// .load-leave-to {
-//   animation-name: slide-in;
-// }
-// .load-enter-active,
-// .load-leave-active {
-//   animation: slide-in 0.5s;
-// }
 </style>
