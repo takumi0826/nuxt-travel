@@ -16,15 +16,16 @@ export default {}
 
 <style lang="scss" scoped>
 .l-footer {
-  margin-top: 80px;
   padding: 40px 0 20px;
   background-color: $brown-2;
   color: #fff;
+
   &__copy {
     margin-top: 20px;
     text-align: center;
   }
 }
+
 .p-footer {
   &__sns {
     text-align: center;

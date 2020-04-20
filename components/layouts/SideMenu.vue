@@ -50,9 +50,11 @@ export default {
   height: 100%;
   background-color: #fff;
   z-index: 80;
+
   &__items {
     padding: 140px 20px 40px;
   }
+
   &__item {
     opacity: 0;
     text-align: center;
@@ -68,6 +70,7 @@ export default {
       }
     }
   }
+
   &__link {
     display: block;
     padding: 40px 0;
@@ -77,6 +80,7 @@ export default {
       font-size: 2rem;
     }
   }
+
   &__sns {
     text-align: center;
     .svg-inline--fa {
@@ -96,6 +100,7 @@ export default {
     }
   }
 }
+
 @keyframes burger-animation {
   0% {
     opacity: 0;

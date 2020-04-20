@@ -1,5 +1,5 @@
 <template>
-  <div class="p-main-visual">
+  <div class="p-mainVisual">
     <swiper :options="swiperOption">
       <swiper-slide>
         <img src="~/assets/img/mv-01.jpg" alt />
@@ -47,9 +47,8 @@ export default {
 </script>
 
 <style lang="scss">
-.p-main-visual {
+.p-mainVisual {
   padding: 147px 0 100px;
-  // padding: 0 0 100px;
   @include lg {
     padding: 117px 0 80px;
   }
@@ -60,6 +59,7 @@ export default {
     padding: 70px 0 60px;
   }
 }
+
 .swiper-slide {
   text-align: center;
   img {
@@ -73,6 +73,7 @@ export default {
     }
   }
 }
+
 .swiper-pagination {
   margin-top: 30px;
   left: 0;

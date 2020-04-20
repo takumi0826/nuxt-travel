@@ -57,6 +57,7 @@ export default {
       flex-direction: column;
     }
   }
+
   &__item {
     width: calc(100% / 2 - 1%);
     overflow: hidden;
@@ -70,6 +71,7 @@ export default {
       }
     }
   }
+
   &__link {
     display: block;
     &::after {
@@ -101,6 +103,7 @@ export default {
       }
     }
   }
+
   &__text {
     position: absolute;
     top: 50%;
@@ -112,6 +115,7 @@ export default {
     opacity: 0;
     transition: all 0.3s;
   }
+
   &__item {
     //cover-slideアニメーション
     position: relative;
@@ -135,6 +139,7 @@ export default {
     }
   }
 }
+
 @keyframes cover-slide {
   0% {
     left: 0;
