@@ -7,21 +7,51 @@
           v-scroll-to="{ el: '#post', offset: -headerHeight }"
           to
           class="p-burgerMenu__link"
-        >ニュース</nuxt-link>
+          >ニュース</nuxt-link
+        >
       </li>
       <li class="p-burgerMenu__item">
-        <nuxt-link @click.native="tabChange('cooking')" to class="p-burgerMenu__link">お料理</nuxt-link>
+        <nuxt-link
+          @click.native="tabChange('cooking')"
+          to
+          class="p-burgerMenu__link"
+          >お料理</nuxt-link
+        >
       </li>
       <li class="p-burgerMenu__item">
-        <nuxt-link @click.native="tabChange('rooms')" to class="p-burgerMenu__link">客室</nuxt-link>
+        <nuxt-link
+          @click.native="tabChange('rooms')"
+          to
+          class="p-burgerMenu__link"
+          >客室</nuxt-link
+        >
       </li>
       <li class="p-burgerMenu__item">
-        <nuxt-link @click.native="tabChange('access')" to class="p-burgerMenu__link">交通</nuxt-link>
+        <nuxt-link
+          @click.native="tabChange('access')"
+          to
+          class="p-burgerMenu__link"
+          >交通</nuxt-link
+        >
       </li>
     </ul>
     <div class="p-burgerMenu__sns">
-      <font-awesome-icon :icon="['fab', 'twitter']" />
-      <font-awesome-icon :icon="['fab', 'github']" />
+      <a
+        href="https://twitter.com/jpnwtgmd"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="p-burgerMenu__icon"
+      >
+        <font-awesome-icon :icon="['fab', 'twitter']" />
+      </a>
+      <a
+        href="https://github.com/takumi0826/nuxt-travel"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="p-burgerMenu__icon"
+      >
+        <font-awesome-icon :icon="['fab', 'github']" />
+      </a>
     </div>
   </div>
 </template>
@@ -83,20 +113,28 @@ export default {
 
   &__sns {
     text-align: center;
+    display: flex;
+    justify-content: center;
     .svg-inline--fa {
       width: 30px;
       height: 30px;
-      &:nth-child(1) {
+      &.fa-twitter {
         path {
           fill: #1da1f2;
         }
       }
-      &:nth-child(2) {
-        margin-left: 10px;
+      &.fa-github {
         path {
           fill: #171515;
         }
       }
+    }
+  }
+
+  &__icon {
+    display: block;
+    &:nth-child(2) {
+      margin-left: 10px;
     }
   }
 }

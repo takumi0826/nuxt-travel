@@ -2,8 +2,22 @@
   <footer class="l-footer">
     <div class="p-footer">
       <div class="p-footer__sns">
-        <font-awesome-icon :icon="['fab', 'twitter']" />
-        <font-awesome-icon :icon="['fab', 'github']" />
+        <a
+          href="https://twitter.com/jpnwtgmd"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="p-footer__icon"
+        >
+          <font-awesome-icon :icon="['fab', 'twitter']" />
+        </a>
+        <a
+          href="https://github.com/takumi0826/nuxt-travel"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="p-footer__icon"
+        >
+          <font-awesome-icon :icon="['fab', 'github']" />
+        </a>
       </div>
     </div>
     <p class="l-footer__copy">©︎ 2020 PortFolio</p>
@@ -29,10 +43,13 @@ export default {}
 .p-footer {
   &__sns {
     text-align: center;
-    svg {
-      &:nth-child(2) {
-        margin-left: 10px;
-      }
+    display: flex;
+    justify-content: center;
+  }
+  &__icon {
+    display: block;
+    &:nth-child(2) {
+      margin-left: 10px;
     }
   }
 }
